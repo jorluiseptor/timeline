@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Ops Portal Timeline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+    body, html {
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="visjs/vis.js"></script>
+  <link href="visjs/vis.css" rel="stylesheet" type="text/css" />
+  <style>
+      /* unrelated styles */
+      body {
+          padding:2em;
+          background-color:whitesmoke;
+      }
+      #visualization {
+          background-color: white;
+      }
+  </style>
+</head>
+<body>
+<h1>Operation Proof of Concept</h1>
+<div id="visualization"></div>
+<p class="instructions">
+    <i>Move and zoom the timeline with the with cursor and mouse wheel. </i>
+</p>
+
+<script type="text/javascript">
+  // DOM element where the Timeline will be attached
+  var container = document.getElementById('visualization');
+
+  // Create a DataSet (allows two way data-binding)
+  var items = new vis.DataSet([
+    {id: 1, content: 'Press conference', start: '2013-04-27'},
+    {id: 2, content: 'Server seized', start: '2013-04-20'},
+    {id: 3, content: 'Target #22 arrested', start: '2013-04-14'},
+    {id: 4, content: 'Agent XYZ en route', start: '2013-04-18'},
+    {id: 5, content: 'Target #3 arrested', start: '2013-04-16', end: '2013-04-19'},
+    {id: 6, content: 'Target #1 interviewed', start: '2013-04-25'},
+    {id: 7, content: 'Command Post Active', start: '2013-04-12 06:00:00', end: '2013-04-28 06:00:00'}
+  ]);
+
+  // Configuration for the Timeline
+  var options = {};
+
+  // Create a Timeline
+  var timeline = new vis.Timeline(container, items, options);
+</script>
+
+
+
+</body>
+</html>
